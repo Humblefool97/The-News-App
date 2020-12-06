@@ -11,7 +11,7 @@ import javax.inject.Inject
  */
 class ArticleRemoteDataStore @Inject constructor(val articlesRemote: ArticlesRemote) :
     ArticlesDataStore {
-    override fun getArticles(): Flow<List<ArticleEntity>> {
+    override suspend fun getArticles(): Flow<List<ArticleEntity>> {
         return articlesRemote.getArticles()
     }
 }

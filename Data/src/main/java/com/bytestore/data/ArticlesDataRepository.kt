@@ -13,7 +13,7 @@ class ArticlesDataRepository @Inject constructor(
     private val provider: ArticlesDataStoreProvider
 ) : ArticlesRepository {
 
-    override fun getArticles(): Flow<List<Article>> {
+    override suspend fun getArticles(): Flow<List<Article>> {
         return provider
             .getDataSore(false, true)
             .getArticles()
