@@ -9,5 +9,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_home)
+
+        NewsListFragment.startNewsLisFragment(
+            R.id.fragmentContainer,
+            fragmentManager = supportFragmentManager
+        )
     }
 }
