@@ -6,7 +6,22 @@ ext {
     androidTargetSdkVersion = 30
     androidMinSdkVersion = 24
 
+    //Testing
+    jUnitVersion = '4.12'
+    assertJVersion = '3.8.0'
+    mockitoKotlinVersion = '1.5.0'
+
     //App versioning
     appVersionCode = 1
     appVersionName = "1.0"
+
+    domainDependencies = [
+            kotlin: "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    ]
+
+    domainTestDependencies = [
+            junit:              "junit:junit:${jUnitVersion}",
+            mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+            assertj:            "org.assertj:assertj-core:${assertJVersion}"
+    ]
 }
