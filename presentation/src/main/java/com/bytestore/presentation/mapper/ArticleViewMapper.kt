@@ -1,8 +1,8 @@
 package com.bytestore.presentation.mapper
 
 import com.bytestore.domain.model.Article
-import com.bytestore.presentation.ArticlesView
-import com.bytestore.presentation.Source
+import com.bytestore.presentation.model.ArticlesView
+import com.bytestore.presentation.model.Source
 
 class ArticleViewMapper : ViewMapper<ArticlesView, Article> {
     override fun fromDomainToView(type: Article): ArticlesView {

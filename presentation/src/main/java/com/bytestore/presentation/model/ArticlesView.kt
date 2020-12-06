@@ -1,4 +1,4 @@
-package com.bytestore.presentation
+package com.bytestore.presentation.model
 
 data class ArticlesView(
     var source: Source,
