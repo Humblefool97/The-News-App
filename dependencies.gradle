@@ -13,6 +13,9 @@ ext {
     mockitoKotlinVersion = '1.5.0'
     javaxAnnotationVersion = "1.0"
     javaxInjectVersion = "1"
+    gsonVersion  = "2.8.1"
+    okHttpVersion = "3.8.1"
+    retrofitVersion = "2.3.0"
 
     //App versioning
     appVersionCode = 1
@@ -43,5 +46,17 @@ ext {
             kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             assertj:            "org.assertj:assertj-core:${assertJVersion}",
             mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
+    ]
+
+    remoteDependencies = [
+            kotlin:     "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            kotlinCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoreVersion",
+            gson :"com.google.code.gson:gson:${gsonVersion}",
+            javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
+            okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogger:       "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter:  "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
     ]
 }
