@@ -1,0 +1,12 @@
+ext {
+    //Android dependencies
+    kotlinVersion = "1.4.10"
+    androidBuildToolsVersion = "30.0.2"
+    androidCompileSdkVersion = 30
+    androidTargetSdkVersion = 30
+    androidMinSdkVersion = 24
+
+    //App versioning
+    appVersionCode = 1
+    appVersionName = "1.0"
+}
