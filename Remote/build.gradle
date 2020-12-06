@@ -22,6 +22,4 @@ dependencies {
     implementation remoteDependencies.okHttpLogger
     implementation remoteDependencies.retrofit
     implementation remoteDependencies.retrofitConverter
-
-
 }
