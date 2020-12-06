@@ -22,6 +22,9 @@ ext {
     timberVersion = "4.5.1"
     glideVersion = "4.0.0"
 
+    //Dagger related
+    daggerVersion = '2.11'
+
     //Testing
     jUnitVersion = '4.12'
     assertJVersion = '3.8.0'
@@ -93,6 +96,10 @@ ext {
             kotlinAnnotationProcessor: "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
             appCompat                : "androidx.appcompat:appcompat:$appCompatVersion",
             materialDesignComponents : "com.google.android.material:material:$materialVersion",
-            glide                    : "com.github.bumptech.glide:glide:${glideVersion}"
+            glide                    : "com.github.bumptech.glide:glide:${glideVersion}",
+            daggerCompiler           : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger                   : "com.google.dagger:dagger:${daggerVersion}",
+            daggerSupport            : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
     ]
 }

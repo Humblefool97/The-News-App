@@ -56,8 +56,12 @@ dependencies {
     implementation mobileUiDependencies.appCompat
     implementation mobileUiDependencies.materialDesignComponents
     implementation mobileUiDependencies.glide
+    implementation mobileUiDependencies.dagger
+    implementation mobileUiDependencies.daggerSupport
 
     kapt mobileUiDependencies.kotlinAnnotationProcessor
+    kapt mobileUiDependencies.daggerCompiler
+    kapt mobileUiDependencies.daggerProcessor
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
