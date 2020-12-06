@@ -21,6 +21,8 @@ ext {
     materialVersion = "1.2.1"
     timberVersion = "4.5.1"
     glideVersion = "4.0.0"
+    constrainLayoutVersion = "2.0.4"
+    recyclerViewVersion = "1.1.0"
 
     //Dagger related
     daggerVersion = '2.11'
@@ -101,5 +103,7 @@ ext {
             dagger                   : "com.google.dagger:dagger:${daggerVersion}",
             daggerSupport            : "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+            constraintLayout         : "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion",
+            recyclerView            : "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     ]
 }
