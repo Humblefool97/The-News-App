@@ -2,13 +2,21 @@ package com.bytestore.mobile_ui.di
 
 import android.app.Application
 import com.bytestore.mobile_ui.NewsApplication
+import com.bytestore.mobile_ui.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class])
+@Component(
+    modules = [AndroidInjectionModule::class,
+        AppModule::class,
+        UiModule::class,
+        PresentationModule::class,
+        DataModule::class,
+        RemoteModule::class]
+)
 interface AppComponent {
 
     @Component.Builder
