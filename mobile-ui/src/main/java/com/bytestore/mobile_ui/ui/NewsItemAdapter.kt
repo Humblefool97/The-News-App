@@ -33,6 +33,7 @@ class NewsItemAdapter(var articlesList: List<Article>) :
             newsDateText.text = newsDate
             //Set description
             newsDescriptionText.text = newsDescription
+            newsDescriptionText.isSelected = true
         }
     }
 

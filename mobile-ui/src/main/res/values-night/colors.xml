@@ -7,11 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="someGrey">#42000000</color>
-    <color name="article_list_card_bg">@color/white</color>
-    <color name="article_list_textColor">@color/black</color>
-    <color name="article_list_cal_icon_color">@color/black</color>
-    <color name="toolbar_color">@color/white</color>
-    <color name="shadow_color">@color/someGrey</color>
+
+    <color name="article_list_card_bg">@color/black</color>
+    <color name="article_list_textColor">@color/white</color>
+    <color name="article_list_cal_icon_color">@color/white</color>
+    <color name="toolbar_color">@color/black</color>
+    <color name="shadow_color">@color/teal_200</color>
+
 
 </resources>
