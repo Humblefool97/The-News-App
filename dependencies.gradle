@@ -23,6 +23,7 @@ ext {
     glideVersion = "4.0.0"
     constrainLayoutVersion = "2.0.4"
     recyclerViewVersion = "1.1.0"
+    navigationVersion = "2.1.0"
 
     //Dagger related
     daggerVersion = '2.16'
@@ -105,6 +106,8 @@ ext {
             daggerSupport            : "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
             constraintLayout         : "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion",
-            recyclerView             : "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+            recyclerView             : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            navigationFrament        : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUi             : "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     ]
 }

@@ -45,7 +45,7 @@ class NewsItemAdapter(var articlesList: List<Article>) :
 
     override fun onBindViewHolder(holder: NewsItemViewHolder, position: Int) {
         val article = articlesList[position]
-        holder.bind(article.urlToImage, article.publishedAt, article.description)
+        holder.bind(article.urlToImage, article.publishedAt, article.title)
     }
 
     override fun getItemCount() = articlesList.size

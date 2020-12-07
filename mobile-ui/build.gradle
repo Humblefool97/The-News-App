@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -61,6 +62,8 @@ dependencies {
     implementation mobileUiDependencies.daggerSupport
     implementation mobileUiDependencies.constraintLayout
     implementation mobileUiDependencies.recyclerView
+    implementation mobileUiDependencies.navigationFrament
+    implementation mobileUiDependencies.navigationUi
 
 
     kapt mobileUiDependencies.kotlinAnnotationProcessor
