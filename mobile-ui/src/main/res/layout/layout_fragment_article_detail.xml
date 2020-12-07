@@ -24,6 +24,7 @@
 
     <ImageView
         android:id="@+id/newsDetailImage"
+        android:transitionName="@string/transitonName"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -46,6 +47,7 @@
         android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:padding="8dp"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -58,6 +60,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed-light"
         android:padding="8dp"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -70,16 +73,19 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView">
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/contentTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-light"
             android:padding="8dp"
-            android:textSize="20sp"
             android:singleLine="false"
+            android:textSize="20sp"
             tools:text="A new monolith was found on the Isle of Wight in England, days after similar structures were found in the US and Romania. Tom Dunford, the man who spotted the monolith, had gone for a walk with his dog, fiancee and sister on Sunday morning when he saw the mirrored monolith. It is unclear who is responsible for the installation.Tom Dunford went for a walk with his dog, fiancee and sister on Sunday morning when he saw the mysterious mirrored object in front of them on the island's Compton Beach." />
     </ScrollView>
 

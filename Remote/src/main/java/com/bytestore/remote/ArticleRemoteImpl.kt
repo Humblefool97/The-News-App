@@ -20,7 +20,7 @@ class ArticleRemoteImpl @Inject constructor(
             withContext(backgroundDispatcher) {
                 flow {
                     val articleEntityList = endpoint.getArticles(
-                            topic = "covid19",
+                            topic = "Android",
                             apiKey = "d9b56c355a4c48a0bf69059b41297144"
                     ).articleList.map {
                         modelMapper.mapFromModel(it)

@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.transition.TransitionInflater
 import com.bumptech.glide.Glide
 import com.bytestore.mobile_ui.R
 import com.bytestore.mobile_ui.model.Article
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.layout_fragment_article_detail.*
 
 class NewsDetailsFragment : Fragment() {
@@ -17,6 +19,9 @@ class NewsDetailsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidSupportInjection.inject(this)
+        
+        TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         arguments?.let {
             article = NewsDetailsFragmentArgs.fromBundle(it).ARGARTICLE
         }
