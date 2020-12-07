@@ -79,6 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:textSize="20sp"
+            android:singleLine="false"
             tools:text="A new monolith was found on the Isle of Wight in England, days after similar structures were found in the US and Romania. Tom Dunford, the man who spotted the monolith, had gone for a walk with his dog, fiancee and sister on Sunday morning when he saw the mirrored monolith. It is unclear who is responsible for the installation.Tom Dunford went for a walk with his dog, fiancee and sister on Sunday morning when he saw the mysterious mirrored object in front of them on the island's Compton Beach." />
     </ScrollView>
 
