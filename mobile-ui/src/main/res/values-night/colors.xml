@@ -12,7 +12,7 @@
     <color name="article_list_textColor">@color/white</color>
     <color name="article_list_cal_icon_color">@color/white</color>
     <color name="toolbar_color">@color/black</color>
-    <color name="shadow_color">@color/teal_200</color>
+    <color name="shadow_color">@color/teal_700</color>
 
 
 </resources>
