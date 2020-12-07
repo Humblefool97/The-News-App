@@ -17,9 +17,5 @@ class HomeActivity : AppCompatActivity() {
 
         AndroidInjection.inject(this)
 
-        NewsListFragment.startNewsLisFragment(
-            R.id.fragmentContainer,
-            fragmentManager = supportFragmentManager
-        )
     }
 }

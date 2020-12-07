@@ -11,7 +11,10 @@ import com.bytestore.mobile_ui.R
 import com.bytestore.mobile_ui.model.Article
 import kotlinx.android.synthetic.main.layout_news_item.view.*
 
-class NewsItemAdapter(var articlesList: List<Article>) :
+class NewsItemAdapter(
+    var articlesList: List<Article>,
+    var action: ListAction
+) :
     RecyclerView.Adapter<NewsItemAdapter.NewsItemViewHolder>() {
 
 
@@ -21,19 +24,20 @@ class NewsItemAdapter(var articlesList: List<Article>) :
         private val newsDescriptionText: TextView = view.descriptionTextView
 
         fun bind(
-            newsImageUrl: String?,
-            newsDate: String,
-            newsDescription: String
+            article: Article
         ) {
             //Set image using Glide
             Glide.with(view.context)
-                .load(newsImageUrl)
+                .load(article.urlToImage)
                 .into(newsImageView)
             //Set date text
-            newsDateText.text = newsDate
+            newsDateText.text = article.publishedAt
             //Set description
-            newsDescriptionText.text = newsDescription
+            newsDescriptionText.text = article.title
             newsDescriptionText.isSelected = true
+            view.setOnClickListener {
+                action.onClick(article)
+            }
         }
     }
 
@@ -45,7 +49,7 @@ class NewsItemAdapter(var articlesList: List<Article>) :
 
     override fun onBindViewHolder(holder: NewsItemViewHolder, position: Int) {
         val article = articlesList[position]
-        holder.bind(article.urlToImage, article.publishedAt, article.title)
+        holder.bind(article)
     }
 
     override fun getItemCount() = articlesList.size

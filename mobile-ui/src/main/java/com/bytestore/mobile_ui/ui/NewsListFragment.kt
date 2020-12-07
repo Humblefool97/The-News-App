@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bytestore.mobile_ui.R
 import com.bytestore.mobile_ui.ViewModelFactory
@@ -25,7 +24,7 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.layout_fragment_news_list.*
 import javax.inject.Inject
 
-class NewsListFragment : Fragment() {
+class NewsListFragment : Fragment(), ListAction {
 
     @Inject
     lateinit var articleUiViewMapper: ArticleUiViewMapper
@@ -39,7 +38,7 @@ class NewsListFragment : Fragment() {
 
 
     private var rootView: View? = null
-    private val adapter by lazy { NewsItemAdapter(emptyList<Article>()) }
+    private val adapter by lazy { NewsItemAdapter(emptyList<Article>(), this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,14 +106,8 @@ class NewsListFragment : Fragment() {
         Snackbar.make(rootView!!, message, Snackbar.LENGTH_LONG).show()
     }
 
-    companion object {
-        fun startNewsLisFragment(
-            containerId: Int,
-            fragmentManager: FragmentManager
-        ): NewsListFragment {
-            val instance = NewsListFragment()
-            fragmentManager.beginTransaction().replace(containerId, instance).commit()
-            return instance
-        }
+    override fun onClick(article: Article) {
+        val action = NewsListFragmentDirections.actionNewsListFragmentToNewsDetailsFragment(article)
+        Navigation.findNavController(rootView!!).navigate(action)
     }
 }
