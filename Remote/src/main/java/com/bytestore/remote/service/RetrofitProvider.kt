@@ -22,15 +22,15 @@ object RetrofitProvider {
         return OkHttpClient
             .Builder()
             .addInterceptor(httpLoggingInterceptor)
-            .connectTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(120, TimeUnit.SECONDS)
+            .connectTimeout(40, TimeUnit.SECONDS)
+            .readTimeout(40, TimeUnit.SECONDS)
             .build()
     }
 
     fun provideApiService(okHttpClient: OkHttpClient, gson: Gson): Endpoint {
         val retrofit = Retrofit
             .Builder()
-            .baseUrl("https://newsapi.org/")
+            .baseUrl("https://newsapi.org/v2/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()

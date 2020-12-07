@@ -52,6 +52,7 @@ dependencies {
     implementation mobileUiDependencies.javaxAnnotation
     implementation mobileUiDependencies.javaxInject
     implementation mobileUiDependencies.viewModel
+    implementation mobileUiDependencies.lifecycleExtensions
     implementation mobileUiDependencies.liveData
     implementation mobileUiDependencies.appCompat
     implementation mobileUiDependencies.materialDesignComponents

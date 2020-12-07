@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ArticleMapper @Inject constructor() : EntityMapper<ArticleEntity, Article> {
     override fun mapFromEntity(entity: ArticleEntity): Article {
         return Article(
-            source = Source(entity.source.id, entity.source.name),
+            source = Source(entity.source?.id, entity.source?.name),
             author = entity.author,
             title = entity.title,
             description = entity.description,
@@ -22,7 +22,7 @@ class ArticleMapper @Inject constructor() : EntityMapper<ArticleEntity, Article>
 
     override fun mapToEntity(data: Article): ArticleEntity {
       return ArticleEntity(
-          source = SourceEntity(data.source.id, data.source.name),
+          source = SourceEntity(data.source?.id, data.source?.name),
           author = data.author,
           title = data.title,
           description = data.description,

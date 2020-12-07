@@ -14,7 +14,7 @@ ext {
     javaxInjectVersion = "1"
     gsonVersion = "2.8.1"
     okHttpVersion = "3.8.1"
-    retrofitVersion = "2.3.0"
+    retrofitVersion = "2.9.0"
     lifecycleVersion = "2.2.0"
     archCompVersion = "2.1.0"
     appCompatVersion = "1.2.0"
@@ -25,7 +25,7 @@ ext {
     recyclerViewVersion = "1.1.0"
 
     //Dagger related
-    daggerVersion = '2.11'
+    daggerVersion = '2.16'
 
     //Testing
     jUnitVersion = '4.12'
@@ -95,6 +95,7 @@ ext {
             javaxInject              : "javax.inject:javax.inject:${javaxInjectVersion}",
             viewModel                : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}",
             liveData                 : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            lifecycleExtensions      : "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion",
             kotlinAnnotationProcessor: "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
             appCompat                : "androidx.appcompat:appcompat:$appCompatVersion",
             materialDesignComponents : "com.google.android.material:material:$materialVersion",
@@ -104,6 +105,6 @@ ext {
             daggerSupport            : "com.google.dagger:dagger-android-support:${daggerVersion}",
             daggerProcessor          : "com.google.dagger:dagger-android-processor:${daggerVersion}",
             constraintLayout         : "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion",
-            recyclerView            : "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+            recyclerView             : "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     ]
 }
