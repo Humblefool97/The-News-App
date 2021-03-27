@@ -4,8 +4,9 @@ import com.bytestore.app.localdata.LocalDataSource
 import com.bytestore.app.network.model.Articles
 import com.bytestore.app.remote.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class ArticlesDataRepository(
+class ArticlesDataRepository @Inject constructor(
     val remoteDataSource: RemoteDataSource,
     val localDataSource: LocalDataSource,
 ) : ArticlesRepository {
