@@ -1,4 +1,4 @@
-package com.bytestore.app.network
+package com.bytestore.app.network.model
 
 import com.bytestore.app.Article
 import com.google.gson.annotations.SerializedName

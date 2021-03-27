@@ -24,6 +24,7 @@ ext {
     constrainLayoutVersion = "2.0.4"
     recyclerViewVersion = "1.1.0"
     navigationVersion = "2.1.0"
+    roomVersion = "2.2.5"
 
     //Dagger related
     daggerVersion = '2.16'

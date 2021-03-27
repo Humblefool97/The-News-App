@@ -25,7 +25,7 @@ object RetrofitProvider {
             .build()
     }
 
-    fun provideRetrofitClient(okHttpClient: OkHttpClient,gson: Gson):RetrofitApiService{
+    fun provideRetrofitClient(okHttpClient: OkHttpClient, gson: Gson): RetrofitApiService {
         val retrofit = Retrofit
             .Builder()
             .baseUrl("https://newsapi.org/v2/")
@@ -35,8 +35,8 @@ object RetrofitProvider {
         return retrofit.create(RetrofitApiService::class.java)
     }
 
-    fun provideRetrofitProvider(isDebug:Boolean):RetrofitApiService{
+    fun provideRetrofitProvider(isDebug: Boolean): RetrofitApiService {
         val okHttpClient = provideOkhttpClient(provideHttpLoggingInterceptor(isDebug))
-        return provideRetrofitClient(okHttpClient,Gson())
+        return provideRetrofitClient(okHttpClient, Gson())
     }
 }
