@@ -1,6 +1,2 @@
-include ':mobile-ui'
-include ':presentation'
-include ':Remote'
-include ':Data'
-include ':Domain'
 rootProject.name = "CovidNews"
+include ':app'
