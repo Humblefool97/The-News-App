@@ -60,6 +60,7 @@ dependencies {
 
     //room
     implementation "androidx.room:room-runtime:$roomVersion"
+    implementation 'androidx.fragment:fragment:1.2.5'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     //Viewmodel

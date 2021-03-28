@@ -1,4 +1,6 @@
 package com.bytestore.app.ui
 
-class AppActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class AppActivity : AppCompatActivity() {
 }
