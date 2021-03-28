@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class ArticleEntity(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "articleId")
     val articleId: Long,
 
     var author: String?,
