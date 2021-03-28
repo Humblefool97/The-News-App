@@ -25,6 +25,7 @@ ext {
     recyclerViewVersion = "1.1.0"
     navigationVersion = "2.1.0"
     roomVersion = "2.2.5"
+    activityVersion = "1.2.2"
 
     //Dagger related
     daggerVersion = '2.16'
