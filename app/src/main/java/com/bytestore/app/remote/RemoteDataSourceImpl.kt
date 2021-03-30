@@ -1,5 +1,6 @@
 package com.bytestore.app.remote
 
+import com.bytestore.app.BuildConfig
 import com.bytestore.app.network.RetrofitApiService
 import com.bytestore.app.network.model.Articles
 import kotlinx.coroutines.CoroutineDispatcher
@@ -17,12 +18,11 @@ class RemoteDataSourceImpl @Inject constructor(
     override suspend fun getArticles(topic: String, pageSize: Int): Flow<Articles> =
         withContext(dispatcher) {
             val articles = flow {
-                //TODO:Logic for fetching API key from BuildConfig
                 val articles =
                     retrofitApiService.getTopHeadlines(
                         topic = topic,
                         pageSize = pageSize,
-                        apiKey = ""
+                        apiKey = BuildConfig.API_KEY
                     )
                 emit(articles)
             }
