@@ -14,14 +14,14 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitProvider {
 
-    fun provideHttpLoggingInterceptor(isDebug: Boolean): HttpLoggingInterceptor {
+    private fun provideHttpLoggingInterceptor(isDebug: Boolean): HttpLoggingInterceptor {
         val logging = HttpLoggingInterceptor()
         logging.level =
             if (isDebug) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         return logging
     }
 
-    fun provideOkhttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
+    private fun provideOkhttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient
             .Builder()
             .addInterceptor(httpLoggingInterceptor)
@@ -30,7 +30,7 @@ object RetrofitProvider {
             .build()
     }
 
-    fun provideRetrofitClient(okHttpClient: OkHttpClient, gson: Gson): RetrofitApiService {
+    private fun provideRetrofitClient(okHttpClient: OkHttpClient, gson: Gson): RetrofitApiService {
         val retrofit = Retrofit
             .Builder()
             .baseUrl("https://newsapi.org/v2/")
