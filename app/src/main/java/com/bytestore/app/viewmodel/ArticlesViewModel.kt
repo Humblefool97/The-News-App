@@ -42,7 +42,7 @@ class ArticlesViewModel @Inject constructor(
         job?.cancel()
 
         liveData.value = Resource(ResourceState.LOADING, null, null)
-        job = viewModelScope.launch(getArticlesExceptionHandler) {
+        job = viewModelScope.launch() {
             repository
                 .getArticles()
                 .collect {
