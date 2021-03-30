@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.bytestore.app.Article
 import com.bytestore.app.R
 import com.bytestore.app.databinding.LayoutItemListBinding
@@ -39,6 +40,7 @@ class NewsListRecyclerViewAdapters(
         fun bind(article: Article) {
             with(article) {
                 //TODO:Set image
+                Glide.with(viewBinding.root).load(urlToImage).into(imageView)
                 dateTextView.text = publishedAt ?: "-"
                 titleTextView.text = title ?: "-"
                 desciptionTextView.text = description ?: "-"
