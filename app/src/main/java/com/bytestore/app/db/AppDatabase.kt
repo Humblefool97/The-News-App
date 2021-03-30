@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import javax.inject.Inject
 
 @Database(entities = [ArticleEntity::class, SourceEntity::class], version = 1)
-abstract class AppDatabase @Inject constructor() : RoomDatabase() {
+abstract class AppDatabase(): RoomDatabase() {
     abstract fun getArticlesDao(): ArticleDao
 
     companion object {

@@ -3,7 +3,9 @@ package com.bytestore.app.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bytestore.app.databinding.ActivityAppBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AppActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAppBinding
 

@@ -8,14 +8,17 @@ import com.bytestore.app.Article
 import com.bytestore.app.repository.ArticlesRepository
 import com.bytestore.app.state.Resource
 import com.bytestore.app.state.ResourceState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class ArticlesViewModel @Inject constructor(val repository: ArticlesRepository) : ViewModel() {
+@HiltViewModel
+class ArticlesViewModel @Inject constructor(
+    val repository: ArticlesRepository,
+) : ViewModel() {
     private val liveData: MutableLiveData<Resource<List<Article>>> = MutableLiveData()
     val articleLiveData: LiveData<Resource<List<Article>>>
         get() = liveData

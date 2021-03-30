@@ -1,11 +1,16 @@
 package com.bytestore.app.network
 
 import com.google.gson.Gson
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 object RetrofitProvider {
 
@@ -35,7 +40,7 @@ object RetrofitProvider {
         return retrofit.create(RetrofitApiService::class.java)
     }
 
-    fun provideRetrofitProvider(isDebug: Boolean): RetrofitApiService {
+    open fun provideRetrofitProvider(isDebug: Boolean): RetrofitApiService {
         val okHttpClient = provideOkhttpClient(provideHttpLoggingInterceptor(isDebug))
         return provideRetrofitClient(okHttpClient, Gson())
     }

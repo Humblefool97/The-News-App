@@ -24,6 +24,11 @@ class NewsListRecyclerViewAdapters(
 
     override fun getItemCount(): Int = articleList.size
 
+    fun submitItems(list: List<Article>) {
+        articleList = list
+        notifyDataSetChanged()
+    }
+
     inner class NewListViewHolder(val viewBinding: LayoutItemListBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
         val imageView = viewBinding.articleImageView
