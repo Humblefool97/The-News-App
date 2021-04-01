@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.bytestore.app.Article
 import com.bytestore.app.repository.ArticlesRepository
 import com.bytestore.app.state.Resource
@@ -12,15 +14,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 import javax.inject.Inject
 
 @HiltViewModel
 class ArticlesViewModel @Inject constructor(
     val repository: ArticlesRepository,
 ) : ViewModel() {
-    private val liveData: MutableLiveData<Resource<List<Article>>> = MutableLiveData()
-    val articleLiveData: LiveData<Resource<List<Article>>>
+    private val liveData: MutableLiveData<Resource<PagingData<Article>>> = MutableLiveData()
+    val articleLiveData: LiveData<Resource<PagingData<Article>>>
         get() = liveData
     private var job: Job? = null
 
@@ -28,7 +32,7 @@ class ArticlesViewModel @Inject constructor(
         fetchArticles()
     }
 
-    val getArticlesExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+    private val getArticlesExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         liveData.postValue(
             Resource(
                 ResourceState.ERROR,
@@ -42,12 +46,20 @@ class ArticlesViewModel @Inject constructor(
         job?.cancel()
 
         liveData.value = Resource(ResourceState.LOADING, null, null)
-        job = viewModelScope.launch() {
-            repository
-                .getArticles()
-                .collect {
-                    liveData.postValue(Resource(ResourceState.SUCCESS, it.articles, null))
-                }
+        val scope = viewModelScope
+
+        job = scope.launch() {
+            val newPagingData = repository.getArticles()
+            newPagingData.cachedIn(viewModelScope)
+            newPagingData.collectLatest {
+                liveData.postValue(
+                    Resource(
+                        state = ResourceState.SUCCESS,
+                        data = it,
+                        null
+                    )
+                )
+            }
         }
     }
 }

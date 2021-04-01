@@ -5,13 +5,14 @@ import androidx.paging.PagingState
 import com.bytestore.app.Article
 import com.bytestore.app.BuildConfig
 import com.bytestore.app.network.RetrofitApiService
+import com.bytestore.app.remote.RemoteDataSource
 import retrofit2.HttpException
 import java.io.IOException
 
 private const val KEY_FIRST_PAGE = 1
 
 class ArticlePagingSource(
-    private val service: RetrofitApiService,
+    private val remoteDataSource: RemoteDataSource,
     private val topic: String
 ) : PagingSource<Int, Article>() {
 
@@ -27,11 +28,11 @@ class ArticlePagingSource(
         val pageKey = params.key ?: KEY_FIRST_PAGE
         val size = params.loadSize
         return try {
-            val items = service.getTopHeadlines(
+            val items = remoteDataSource.getArticles(
                 topic = topic,
-                pageSize = size,
-                apiKey = BuildConfig.API_KEY
+                pageSize = size
             )
+
             val nextKey = if (items.articles.isEmpty()) null else {
                 pageKey + (params.loadSize / INITIAL_PAGE_SIZE)
             }
@@ -49,7 +50,7 @@ class ArticlePagingSource(
     }
 
     companion object {
-        val INITIAL_PAGE_SIZE = 50
+        val INITIAL_PAGE_SIZE = 10
     }
 
 }

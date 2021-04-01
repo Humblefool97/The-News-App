@@ -16,6 +16,6 @@ class AdapterModule {
 
     @Provides
     fun provideNewsListAdapter(list: List<Article>): NewsListRecyclerViewAdapters {
-        return NewsListRecyclerViewAdapters(list)
+        return NewsListRecyclerViewAdapters()
     }
 }
