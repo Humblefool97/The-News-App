@@ -26,7 +26,7 @@ ext {
     navigationVersion = "2.1.0"
     roomVersion = "2.2.5"
     activityVersion = "1.2.2"
-
+    pagingVersion = "2.1.2"
     //Dagger related
     daggerVersion = '2.16'
 
